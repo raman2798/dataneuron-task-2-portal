@@ -8,7 +8,7 @@ import { CustomErrorProps, CustomQueryProps } from '@/types';
 const { createAlert } = alertActions;
 
 const {
-  users: { create, readAll, readById, updateById, search },
+  users: { create, readAll, readById, updateById, search, getUserCounts },
 } = apiEndpointsHelpers;
 
 const { client } = clientHelpers;
@@ -36,7 +36,7 @@ export const useCreateUser = () =>
           type: Alert.SUCCESS,
           isOpen: true,
           message: 'User create successfully',
-          navigateLink: '/administration/users',
+          navigateLink: '/',
         }),
       ),
     onError: (error) => handleErrors(error),
@@ -72,7 +72,7 @@ export const useUpdateUser = () =>
           type: Alert.SUCCESS,
           isOpen: true,
           message: 'User update successfully',
-          navigateLink: '/administration/users',
+          navigateLink: '/',
         }),
       ),
     onError: (error) => handleErrors(error),
@@ -83,4 +83,10 @@ export const useSearchUsers = ({ page = 1, limit = 10, searchValue }: CustomQuer
     queryKey: ['searchUsers', searchValue, page, limit],
     queryFn: () => client.get(search(), { params: { searchValue, page, limit } }),
     enabled: gt(size(searchValue), 2),
+  });
+
+export const useUserCounts = () =>
+  useQuery({
+    queryKey: ['readUserCounts'],
+    queryFn: () => client.get(getUserCounts()),
   });

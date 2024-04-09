@@ -5,6 +5,7 @@ const apiEndpoints = {
     readById: (id: string) => `/users/${id}`,
     updateById: (id: string) => `/users/${id}`,
     search: () => '/users/search',
+    getUserCounts: () => '/users/count',
   },
 };
 

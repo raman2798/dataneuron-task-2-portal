@@ -4,7 +4,7 @@ import { DataGrid, DataGridProps } from '@mui/x-data-grid';
 
 const CustomTable: FC<DataGridProps> = ({ ...rest }): ReactElement => {
   return (
-    <Box sx={{ pt: 12, width: '100%' }}>
+    <Box sx={{ pt: 4, width: '100%' }}>
       <DataGrid
         initialState={{
           pagination: {

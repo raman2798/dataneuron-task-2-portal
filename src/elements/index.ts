@@ -1,4 +1,5 @@
 export { CustomButton } from './CustomButton';
+export { CustomCard } from './CustomCard';
 export { CustomFormLabel } from './CustomFormLabel';
 export { CustomModal } from './CustomModal';
 export { CustomTable } from './CustomTable';
